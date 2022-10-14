@@ -2,9 +2,9 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-<form action="" method="POST">
+  <form action="" method="POST" class="p-3 m-3">
     {% csrf_token %}
     {% bootstrap_form account_form %}
     <input type="submit" name="" value="회원가입">
-</form>
+  </form>
 {% endblock %}

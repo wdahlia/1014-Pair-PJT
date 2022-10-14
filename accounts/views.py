@@ -1,14 +1,22 @@
 from django.shortcuts import render, redirect
-from .models import User
 from .forms import CustomUserCreationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+def main(request):
+    return render(request, 'accounts/main.html')
+
 def index(request):
-    return render(request, "accounts/index.html")
+    account_list = get_user_model().objects.order_by('-id')
+
+    context = {
+        'account_list' : account_list
+    }
+    return render(request, "accounts/index.html", context)
 
 
 def signup(request):
@@ -37,4 +45,14 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect('accounts:index')
+    return redirect('accounts:main')
+
+@login_required
+def detail(request, pk):
+    account_detail = get_user_model().objects.get(pk=pk)
+
+    context = {
+        'account_detail' : account_detail
+    }
+
+    return render(request, 'accounts/detail.html', context)
