@@ -16,6 +16,7 @@
       {% endif %}
 
     </div>
+    <a href="{% url "accounts:update" account_detail.pk %}"><input type="button" value="회원 정보 수정"></a>
   </div>
 
 {% endblock content %}
