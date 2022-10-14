@@ -1,0 +1,16 @@
+body {
+  background-color: #A5FFE4;
+}
+
+.view-size {
+  width: 100vw;
+  height: 100vh;
+}
+
+.card:hover {
+  transform: scale(1.12);
+}
+
+.card-box {
+  box-shadow: 0 0 15px rgba(32, 41, 35, 0.344);
+}

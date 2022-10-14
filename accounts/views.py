@@ -35,7 +35,7 @@ def login(request):
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            return redirect("accounts:index")
+            return redirect("reviews:index")
     else:
         form = AuthenticationForm()
     context = {"form": form}

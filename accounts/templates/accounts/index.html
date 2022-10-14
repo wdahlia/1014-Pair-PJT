@@ -11,7 +11,7 @@
         </tr>
       </thead>
       {% for account in account_list %}
-        <tbody>
+        <tbody class="bg-light">
           <tr>
             <th scope="row">
               <a href="{% url 'accounts:detail' account.pk %}" class="text-decoration-none">{{ account.username }}</a>

@@ -3,20 +3,22 @@
 {% block content %}
 
   <div class="d-flex justify-content-center align-items-center">
-    <div>
+    <div class="card border border-2 card-box p-4 mt-5">
       <h2>{{ account_detail.username }}</h2>
+      <hr>
       <h4>{{ account_detail.email }}</h4>
       {% if account_detail.last_login == None %}
-        <p>최근 접속 :
+        <p>
+          <span class="fw-bolder">최근 접속 :</span>
         </p>
       {% else %}
-        <p>최근 접속 :
+        <p>
+          <span class="fw-bolder">최근 접속 :</span>
           {{ account_detail.last_login }}
         </p>
       {% endif %}
-
+      <a href="{% url "accounts:update" account_detail.pk %}" class="text-center mt-2"><input type="button" value="회원 정보 수정" class="btn btn-success"></a>
     </div>
-    <a href="{% url "accounts:update" account_detail.pk %}"><input type="button" value="회원 정보 수정"></a>
   </div>
 
 {% endblock content %}
