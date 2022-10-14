@@ -1,5 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-<a href="{% url 'accounts:login' %}">로그인</a>
-<a href="{% url 'accounts:logout' %}">로그아웃</a>
+  <div class="container mt-5">
+    <table class="table">
+      <thead class="bg-dark text-white">
+        <tr>
+          <th scope="col">유저 이름</th>
+          <th scope="col">회원가입 시간</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      {% for account in account_list %}
+        <tbody>
+          <tr>
+            <th scope="row">
+              <a href="{% url 'accounts:detail' account.pk %}" class="text-decoration-none">{{ account.username }}</a>
+            </th>
+            <td>{{ account.date_joined }}</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      {% endfor %}
+    </table>
+
+    <a href="{% url 'accounts:logout' %}" class="btn btn-warning">로그아웃</a>
+  </div>
 {% endblock %}

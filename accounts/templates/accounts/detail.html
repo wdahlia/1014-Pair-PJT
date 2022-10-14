@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="d-flex justify-content-center align-items-center">
+    <div>
+      <h2>{{ account_detail.username }}</h2>
+      <h4>{{ account_detail.email }}</h4>
+      {% if account_detail.last_login == None %}
+        <p>최근 접속 :
+        </p>
+      {% else %}
+        <p>최근 접속 :
+          {{ account_detail.last_login }}
+        </p>
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endblock content %}

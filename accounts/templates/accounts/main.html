@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="d-flex justify-content-center align-items-center view-size">
+    <a href="{% url 'accounts:login' %}" class="btn btn-dark mx-2">로그인</a>
+    <a href="{% url 'accounts:signup' %}" class="btn btn-dark mx-2">회원가입</a>
+  </div>
+
+{% endblock content %}
