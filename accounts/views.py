@@ -58,13 +58,18 @@ def detail(request, pk):
 
 @login_required
 def update(request, pk):
-    update_user = get_user_model().objects.get(pk=pk)
-    if request.method == "POST":
-        update_form = CustomUserChangeForm(request.POST, instance=update_user)
-        if update_form.is_valid():
-            update_form.save()
-            return redirect("accounts:detail", update_user.pk)
+    if request.user.pk == pk:
+        if request.method == "POST":
+            update_form = CustomUserChangeForm(request.POST, instance=request.user)
+            if update_form.is_valid():
+                update_form.save()
+                return redirect("accounts:detail", request.user.pk)
+        else:
+            update_form = CustomUserChangeForm(instance=request.user)
+        context = {"update_form": update_form}
+        return render(request, "accounts/update.html", context)
     else:
-        update_form = CustomUserChangeForm(instance=update_user)
-    context = {"update_form": update_form}
-    return render(request, "accounts/update.html", context)
+        return render(request, 'accounts/diff.html')
+
+def diff(request):
+    return render(request, 'accounts/diff.html')
