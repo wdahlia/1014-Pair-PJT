@@ -7,7 +7,7 @@
         <div class="col">
           <div class="card rounded-4">
             <div class="card-header bg-dark text-white p-3 rounded-2">
-              <h2 class="m-0">{{ review.title }}</h2>
+              <a href="{% url 'reviews:detail' review.pk %}"><h2 class="m-0">{{ review.title }}</h2></a>
             </div>
             <div class="card-body">
               <h4 class="fw-semibold fs-5 text-secondary">{{ review.movie_name}}</h4>
