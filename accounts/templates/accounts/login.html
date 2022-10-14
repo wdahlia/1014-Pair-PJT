@@ -5,6 +5,7 @@
   <form action="" method="POST" class="p-3 m-3">
     {% csrf_token %}
     {% bootstrap_form form %}
-    <input type="submit" name="" value="로그인">
+    <div class="text-end mx-3"><input type="submit" name="" value="로그인" class="btn btn-dark"></div>
+
   </form>
 {% endblock %}
