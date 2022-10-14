@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>{{ review.title }}</h1>
+<h3>{{ review.movie_name }}</h3>
+<p>{{ review.content }}</p>
+<p>{{ review.grade }}</p>
+<p>{{ review.created_at }}</p>
+<a href="">수정</a>
+<a href="">삭제</a>
+
+{% endblock content %}
+
