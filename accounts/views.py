@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 def main(request):
     return render(request, "accounts/main.html")
 
-
+@login_required
 def index(request):
     account_list = get_user_model().objects.order_by("-id")
 

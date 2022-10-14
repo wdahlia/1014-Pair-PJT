@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container my-5">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      {% for review in review_list %}
+        <div class="col">
+          <div class="card rounded-4">
+            <div class="card-header bg-dark text-white p-3 rounded-2">
+              <h2 class="m-0">{{ review.title }}</h2>
+            </div>
+            <div class="card-body">
+              <h4 class="fw-semibold fs-5 text-secondary">{{ review.movie_name}}</h4>
+              <p>
+                <i class="bi bi-star-fill"></i>
+                {{ review.grade }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}
