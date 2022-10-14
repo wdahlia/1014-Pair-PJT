@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <form action="" method="POST" class="p-3 m-3">
+    {% csrf_token %}
+    {% bootstrap_form update_form %}
+    <input type="submit" name="" value="수정">
+  </form>
+{% endblock %}
