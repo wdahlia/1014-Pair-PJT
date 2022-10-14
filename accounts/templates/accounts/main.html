@@ -2,9 +2,12 @@
 
 {% block content %}
 
-  <div class="d-flex justify-content-center align-items-center view-size">
-    <a href="{% url 'accounts:login' %}" class="btn btn-dark mx-2">로그인</a>
-    <a href="{% url 'accounts:signup' %}" class="btn btn-dark mx-2">회원가입</a>
+  <div class="d-flex flex-column justify-content-center align-items-center view-size">
+    <div>
+      <a href="{% url 'accounts:login' %}" class="btn btn-dark mx-2">로그인</a>
+      <a href="{% url 'accounts:signup' %}" class="btn btn-dark mx-2">회원가입</a>
+    </div>
+    <div class='m-3'><a href="{% url 'accounts:index' %}" class="btn btn-dark mx-2">회원목록</a></div>
   </div>
 
 {% endblock content %}

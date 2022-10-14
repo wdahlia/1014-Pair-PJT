@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-<h1>{{ review.title }}</h1>
-<h3>{{ review.movie_name }}</h3>
-<p>{{ review.content }}</p>
-<p>{{ review.grade }}</p>
-<p>{{ review.created_at }}</p>
-<a href="">수정</a>
-<a href="">삭제</a>
+<section class="container mt-5 p-4 border border-3 rounded-3">
+  <h1>리뷰 제목 : {{ review.title }}</h1>
+  <h3>영화 제목 : {{ review.movie_name }}</h3>
+  <textarea class="my-3" style="width: 100%;">내용 :{{ review.content }}</textarea>
+  <p>평점 : {{ review.grade }}</p>
+  <p>수정 날짜 : {{ review.created_at }}</p>
+  <div class="d-flex justify-content-end">
+    <a class='btn btn-primary mx-3' href="{% url 'reviews:update' review.pk %}">수정</a>
+    <a class='btn btn-danger' href="{% url 'reviews:delete' review.pk %}">삭제</a>
+  </div>
+</section>
 
 {% endblock content %}
 
