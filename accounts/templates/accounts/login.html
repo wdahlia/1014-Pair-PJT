@@ -3,8 +3,8 @@
 
 {% block content %}
 <form action="" method="POST">
-    {% csrf_token %}
-    {% bootstrap_form account_form %}
-    <input type="submit" name="" value="회원가입">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  <input type="submit" name="" value="로그인">
 </form>
 {% endblock %}
